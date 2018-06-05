@@ -7,7 +7,7 @@ class EventGeneratorInput {
         //TODO
     }
 
-    private async storeConveyorItem(item: ConveyorItem) {
+    public async storeConveyorItem(item: ConveyorItem) {
         try {
             const json = JSON.stringify(item);
             return await ledgerClient.doInvoke('storeConveyorItem', [json]);

@@ -2,6 +2,7 @@ import * as express from 'express';
 import * as bodyParser from 'body-parser';
 import { logger } from "./Logger";
 import { eventGeneratorInput } from "./EventGeneratorInput"
+import { ConveyorItem } from './ledger/model/ConveyorItem';
 class EventGeneratorInputWebInterface {
   public express
 
@@ -16,9 +17,10 @@ class EventGeneratorInputWebInterface {
     router.use(bodyParser.urlencoded({ extended: false }));
     router.use(bodyParser.json())
 
-    router.post('/store', (req, res) => {
+    router.post('/storeConveyorItem', (req, res) => {
       const body: string = req.body;
-      eventGeneratorInput.storeProcessStepRouting(JSON.stringify(body)).then(data => {
+      let item: ConveyorItem = JSON.parse(req.body);
+      eventGeneratorInput.storeConveyorItem(item).then(data => {
         res.json(data);
       }, error => {
         logger.error(error.message);
