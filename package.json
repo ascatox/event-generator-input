@@ -1,0 +1,44 @@
+{
+  "name": "@faredge/event-generator-input",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "./dist/server.js",
+    "build": "tsc",
+    "dev": "tsc --watch & nodemon dist",
+    "test": "tsc && mocha dist/**/*.spec.js",
+    "lint": "eslint src --ext ts",
+    "tsc": "tsc"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/node": "8.9.0",
+    "express": "4.16.3",
+    "nodemon": "1.17.5",
+    "fabric-client": "1.0.8",
+    "fabric-ca-client": "1.0.8",
+    "winston": "2.4.2",
+    "body-parser": "1.18.3",
+    "moment": "2.22.1",
+    "node-schedule": "1.2.0"
+  },
+  "devDependencies": {
+    "@types/mocha": "2.2.41",
+    "@types/node": "8.9.0",
+    "eslint": "4.0.0",
+    "eslint-config-airbnb-base": "11.2.0",
+    "eslint-plugin-import": "2.3.0",
+    "eslint-plugin-promise": "3.5.0",
+    "mocha": "3.4.2",
+    "supertest": "3.0.0",
+    "tsc": "1.20150623.0",
+    "typescript": "2.3.3",
+    "typescript-eslint-parser": "3.0.0",
+    "fabric-client": "1.0.8",
+    "fabric-ca-client": "1.0.8",
+    "body-parser": "1.18.3"
+  }
+}

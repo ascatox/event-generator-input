@@ -1,0 +1,20 @@
+version: '2.0'
+services:
+  event-generator-input:
+    container_name: event-generator-input
+    image: faredge/event-generator-input
+    environment:
+      - LOGGING_LEVEL = error
+    ports:
+      - 3000:3000
+    volumes:
+      - /opt/hyperledger/configuration-network-fabric/crypto-config:/crypto-config
+      - /opt/hyperledger/product-unit-hub-web-interface/resources:/usr/src/resources
+    external_links:
+      - ca.example.com
+      - orderer.example.com
+      - peer0.org1.example.com
+      - peer1.org1.example.com
+      - peer2.org1.example.com
+      - peer3.org1.example.com
+    network_mode: configurationservice_byfn
