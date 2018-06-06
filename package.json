@@ -1,5 +1,5 @@
 {
-  "name": "@faredge/event-generator-input",
+  "name": "event-generator-input",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
