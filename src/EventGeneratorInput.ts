@@ -1,5 +1,5 @@
-import { ledgerClient } from './ledger/LedgerClient';
-import { ConveyorItem } from './ledger/model/ConveyorItem';
+import * as ledgerClient from 'node-ledger-client'
+import { ConveyorItem } from './model/ConveyorItem';
 
 class EventGeneratorInput {
 

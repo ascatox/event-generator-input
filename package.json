@@ -23,7 +23,8 @@
     "winston": "2.4.2",
     "body-parser": "1.18.3",
     "moment": "2.22.1",
-    "node-schedule": "1.2.0"
+    "node-schedule": "1.2.0",
+    "node-ledger-client": "1.0.2"
   },
   "devDependencies": {
     "@types/mocha": "2.2.41",
