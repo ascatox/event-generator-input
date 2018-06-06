@@ -4,23 +4,27 @@ class FileParser {
     constructor() {
     }
 
-    public parseData() {
+    public parseData(count: number, flag) {
+        var lines = require('fs').readFileSync('logger.txt', 'utf-8')
+            .split('\n');
+        if (!flag) {
+            for (var i = 0; i < lines.length; i++) {
+                console.log('Line read: ' + lines[i]);
+                if (lines[i].split(';').includes('SORTER-INPUT')) {
+                    return lines[i];
+                }
+            }
+        }
+        else {
+            for (var i = count; i < lines.length; i++) {
+                console.log('Line read: ' + lines[i]);
+                if (lines[i].split(';').includes('SORTER-INPUT')) {
+                    return lines[i];
+                }
 
-        var LineByLineReader = require('../line-by-line.js'),
-            lr = new LineByLineReader('big_file.txt');
+            }
+        }
 
-        lr.on('error', function (err) {
-            // 'err' contains error object
-        });
-
-        lr.on('line', function (line) {
-            // 'line' contains the current line without the trailing newline character.
-        });
-
-        lr.on('end', function () {
-            // All lines are read, file is closed now.
-        });
     }
-
 }
 export { FileParser };

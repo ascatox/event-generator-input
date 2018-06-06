@@ -1,16 +1,18 @@
-import * as ledgerClient from 'node-ledger-client'
+import * as LedgerClient from 'node-ledger-client'
 import { ConveyorItem } from './model/ConveyorItem';
+const config = require('../resources/config-fabric-network.json');
 
-class EventGeneratorInput {
+class EventGeneratcorInput {
+    private ledgerClient;
 
     constructor() {
-        //TODO
+        this.ledgerClient = new LedgerClient(config);
     }
 
     public async storeConveyorItem(item: ConveyorItem) {
         try {
             const json = JSON.stringify(item);
-            return await ledgerClient.doInvoke('storeConveyorItem', [json]);
+            return await this.ledgerClient.doInvoke('storeConveyorItem', [json]);
         } catch (err) {
             throw new Error(err);
         }
@@ -19,4 +21,4 @@ class EventGeneratorInput {
 
 }
 
-export const eventGeneratorInput = new EventGeneratorInput();
+export const eventGeneratorInput = new EventGeneratcorInput();

@@ -1,13 +1,17 @@
-import productUnitWebInterface from './ProductUnitWebInterface'
-import winston from 'winston'
+import winston from 'winston';
+// const port = process.env.PORT || 3000;
 
-const port = process.env.PORT || 3000;
+import {FileParser} from './parser/FileParser'
+// productUnitWebInterface.listen(port, (err) => {
+//   if (err) {
+//     return console.log(err)
+//   }
 
+//   return console.log(`server is listening on ${port}`)
+// })
+(function main() {
+  const fileParser = new FileParser();
+  let line = fileParser.parseData(70,true);
+  console.log(line);
 
-productUnitWebInterface.listen(port, (err) => {
-  if (err) {
-    return console.log(err)
-  }
-
-  return console.log(`server is listening on ${port}`)
-})
+}());

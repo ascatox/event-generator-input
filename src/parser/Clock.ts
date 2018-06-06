@@ -1,7 +1,8 @@
+import { ConveyorItem } from "../model/ConveyorItem";
+import { ConveyorItemType } from "../model/ConveyorItemType";
+
 const scheduler = require("node-schedule");
 //import { eventGeneratorInput } from "../EventGeneratorInput"
-import { ConveyorItem } from "../ledger/model/ConveyorItem";
-import { ConveyorItemType } from "../ledger/model/ConveyorItemType";
 
 
 class Clock {
@@ -10,12 +11,13 @@ class Clock {
 
     }
 
-    private static clock() {
-
+    private static main() {
+        let count = 0;
+        let flag = false;
         var event = scheduler.scheduleJob("5 * * * * *", function () {
             console.log('EventGeneratorInput start...');
 
-            let lineRead = this.FileParse.parseData();
+            let lineRead = this.FileParse.parseData(count, flag);
             console.log('Item In on conveyor' +lineRead);
             let item: ConveyorItem;
             let itemType: ConveyorItemType = new ConveyorItemType(lineRead[0], lineRead[3]);
@@ -29,7 +31,8 @@ class Clock {
             console.log('Query chaincode...');
             this.eventGeneratorInput.storeConveyorItem(item);
             console.log('Query done');
-
+            count++; 
+            flag = true;
         });
 
     }
