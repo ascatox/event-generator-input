@@ -20,8 +20,13 @@ class Clock {
     }
 
     public start() {
-        var date = this.fileParser.extactTimestamp();
-        var event = scheduler.scheduleJob(date, () => {
+        var timer = this.fileParser.extactTimestamp();
+        /* var date = new Date(0, 0, 0, 0, 0, +timer);
+        var event = scheduler.scheduleJob( date, () => { */
+
+        var rule = new scheduler.RecurrenceRule();
+        rule.second = +timer;
+        var event = scheduler.scheduleJob(rule, () => {
             console.log('EventGeneratorInput start...');
             let lineRead = this.fileParser.parseData();
             let arrayItem = [null, null, null, null];
@@ -53,8 +58,8 @@ class Clock {
             console.log('Query chaincode...');
             eventGeneratorInput.storeConveyorItem(this.item);
             console.log('Query done');
+            event.cancel();
         });
-
     }
 }
 export { Clock };

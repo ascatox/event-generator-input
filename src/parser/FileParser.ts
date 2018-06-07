@@ -11,6 +11,7 @@ class FileParser {
         .split('\n');
         for (var i = this.index; i < lines.length; i++) {
             arrayRead = lines[i].split(';');
+            console.log('Timestamp extract: ' +arrayRead[2]);
             return arrayRead[2];
     }
 }

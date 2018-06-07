@@ -15,9 +15,9 @@ import { Clock } from './parser/Clock';
   //let line = fileParser.parseData(70,true);
   //console.log(line);
    
-  
+  while(true){
   const clock = new Clock();
   clock.start();
   
-
+  }
 }());
