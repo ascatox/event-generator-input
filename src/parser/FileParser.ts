@@ -1,30 +1,30 @@
 
 class FileParser {
+    private index;
 
     constructor() {
+        this.index = 0;
     }
-
-    public parseData(count: number, flag) {
-        var lines = require('fs').readFileSync('logger.txt', 'utf-8')
-            .split('\n');
-        if (!flag) {
-            for (var i = 0; i < lines.length; i++) {
-                console.log('Line read: ' + lines[i]);
-                if (lines[i].split(';').includes('SORTER-INPUT')) {
-                    return lines[i];
-                }
-            }
-        }
-        else {
-            for (var i = count; i < lines.length; i++) {
-                console.log('Line read: ' + lines[i]);
-                if (lines[i].split(';').includes('SORTER-INPUT')) {
-                    return lines[i];
-                }
-
-            }
-        }
-
+    public extactTimestamp(){
+        let arrayRead = [null, null, null, null];
+        var lines = require('fs').readFileSync('logger_text.txt', 'utf-8')
+        .split('\n');
+        for (var i = this.index; i < lines.length; i++) {
+            arrayRead = lines[i].split(';');
+            return arrayRead[2];
     }
 }
+
+    public parseData() {
+        var lines = require('fs').readFileSync('logger_text.txt', 'utf-8')
+            .split('\n');
+        for (var i = this.index; i < lines.length; i++) {
+            console.log('Line read: ' + lines[i]);
+            //if (lines[i].split(';').includes('SORTER-INPUT')) {
+            this.index++;
+            return lines[i];
+        }
+    }
+}
+
 export { FileParser };

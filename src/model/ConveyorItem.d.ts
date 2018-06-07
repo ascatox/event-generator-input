@@ -1,11 +1,11 @@
 import { ConveyorItemType } from "./ConveyorItemType";
 import { ConveyorBay } from "./ConveyorBay";
-export declare class ConveyorItem {
-    private typeObject: string;
-    private id: string;
-    private type: ConveyorItemType;
-    private state: ConveyorItem.State;
-    private bay: ConveyorBay;
+export declare interface ConveyorItem {
+    typeObject: string;
+    id: string;
+    type: ConveyorItemType;
+    state: ConveyorItem.State;
+     bay: ConveyorBay;
 }
 export declare module ConveyorItem {
     enum State {

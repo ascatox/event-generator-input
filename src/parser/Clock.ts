@@ -1,43 +1,60 @@
+
+import { FileParser } from "./FileParser";
 import { ConveyorItem } from "../model/ConveyorItem";
 import { ConveyorItemType } from "../model/ConveyorItemType";
+import { eventGeneratorInput } from "../EventGeneratorInput";
+//import { ConveyorItem } from "../model/ConveyorItem";
+//import { ConveyorItemType } from "../model/ConveyorItemType";
+
 
 const scheduler = require("node-schedule");
-//import { eventGeneratorInput } from "../EventGeneratorInput"
-
-
 class Clock {
-
+    private fileParser: FileParser;
+    private item: ConveyorItem;
+    private itemType: ConveyorItemType;
+    //private itemType: ConveyorItemType;
     constructor() {
+        this.fileParser = new FileParser();
+        //this.itemType = new ConveyorItemType(null, null);
 
     }
 
-    private static main() {
-        let count = 0;
-        let flag = false;
-        var event = scheduler.scheduleJob("5 * * * * *", function () {
+    public start() {
+        var date = this.fileParser.extactTimestamp();
+        var event = scheduler.scheduleJob(date, () => {
             console.log('EventGeneratorInput start...');
+            let lineRead = this.fileParser.parseData();
+            let arrayItem = [null, null, null, null];
+            arrayItem = lineRead.split(';');
+            console.log('ItemIN : ' + arrayItem);
+            for (let index = 0; index < arrayItem.length; index++) {
+                console.log(arrayItem[index]);
+            }
+            this.item =
+                {
+                    id: arrayItem[0],
+                    typeObject: null,
+                    type: arrayItem[3],
+                    state: null,
+                    bay: null,
+            };
 
-            let lineRead = this.FileParse.parseData(count, flag);
-            console.log('Item In on conveyor' +lineRead);
-            let item: ConveyorItem;
-            let itemType: ConveyorItemType = new ConveyorItemType(lineRead[0], lineRead[3]);
+            this.itemType =
+             {
+                id : arrayItem[0],
+                description : arrayItem[3],
+                
+            };
 
-            item: { id: lineRead[0] };
-            item: { typeObject: null  };
-            item: { type: this.itemType.description};
-            item: { state: null };
-            item: { bay: null };
+
+            console.log(this.item);
+            console.log(this.itemType);
 
             console.log('Query chaincode...');
-            this.eventGeneratorInput.storeConveyorItem(item);
+            eventGeneratorInput.storeConveyorItem(this.item);
             console.log('Query done');
-            count++; 
-            flag = true;
         });
 
     }
-
-
 }
-
 export { Clock };
