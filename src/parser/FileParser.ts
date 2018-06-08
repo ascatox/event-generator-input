@@ -27,13 +27,13 @@ class FileParser {
         this.item = {
           id: arrayItem[0],
           typeObject: null,
-          type: arrayItem[3],
+          type: this.itemType,
           state: null,
           bay: null
         };
         this.itemType = {
-          id: arrayItem[0],
-          description: arrayItem[3]
+          id: arrayItem[3],
+          description: 'oven'
         };
         log.logger.debug(this.item);
         log.logger.debug(this.itemType);
