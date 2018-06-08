@@ -9,7 +9,7 @@ class FileParser {
 
     constructor() {
         this.index = 0;
-        this.lines = require('fs').readFileSync('logger_input.txt', 'utf-8').split('\n');
+        this.lines = require('fs').readFileSync('../../data/logger_input.txt', 'utf-8').split('\n');
     }
 
     public parseData() {
