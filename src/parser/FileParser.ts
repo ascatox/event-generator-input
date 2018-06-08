@@ -1,8 +1,6 @@
 import { ConveyorItem } from "../model/ConveyorItem";
 import { ConveyorItemType } from "../model/ConveyorItemType";
 import { eventGeneratorInput } from "../EventGeneratorInput";
-
-
 class FileParser {
     private item: ConveyorItem;
     private itemType: ConveyorItemType;
