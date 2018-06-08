@@ -1,8 +1,8 @@
-import winston from 'winston';
+import winston from "winston";
 // const port = process.env.PORT || 3000;
 
-import {FileParser} from './parser/FileParser'
-import { Timer } from './parser/Timer'
+import { FileParser } from "./parser/FileParser";
+import { Timer } from "./parser/Timer";
 // productUnitWebInterface.listen(port, (err) => {
 //   if (err) {
 //     return console.log(err)
@@ -10,14 +10,11 @@ import { Timer } from './parser/Timer'
 
 //   return console.log(`server is listening on ${port}`)
 // })
-(async function main() {
+(function main() {
   //const fileParser = new FileParser();
   //let line = fileParser.parseData(70,true);
   //console.log(line);
-   
-  
+
   const timer = new Timer();
   timer.run();
-  
-  
-}());
+})();
