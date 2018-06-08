@@ -2,7 +2,7 @@ import winston from "winston";
 // const port = process.env.PORT || 3000;
 
 import { FileParser } from "./parser/FileParser";
-import { Timer } from "./parser/Timer";
+//import { Timer } from "./parser/Timer";
 // productUnitWebInterface.listen(port, (err) => {
 //   if (err) {
 //     return console.log(err)
@@ -15,6 +15,8 @@ import { Timer } from "./parser/Timer";
   //let line = fileParser.parseData(70,true);
   //console.log(line);
 
-  const timer = new Timer();
-  timer.run();
+  // const timer = new Timer();
+  // timer.run();
+  const fileParser = new FileParser();
+  fileParser.parseData();
 })();
