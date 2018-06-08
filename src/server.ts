@@ -2,7 +2,7 @@ import winston from 'winston';
 // const port = process.env.PORT || 3000;
 
 import {FileParser} from './parser/FileParser'
-import { Clock } from './parser/Clock';
+import { Timer } from './parser/Timer'
 // productUnitWebInterface.listen(port, (err) => {
 //   if (err) {
 //     return console.log(err)
@@ -15,9 +15,9 @@ import { Clock } from './parser/Clock';
   //let line = fileParser.parseData(70,true);
   //console.log(line);
    
-  while(true){
-  const clock = new Clock();
-  clock.start();
   
-  }
+  const timer = new Timer();
+  timer.run();
+  
+  
 }());
