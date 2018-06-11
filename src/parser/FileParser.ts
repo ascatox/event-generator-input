@@ -29,7 +29,7 @@ class FileParser {
           typeObject: null,
           type: this.itemType,
           state: null,
-          bay: null
+          conveyorBay: null
         };
         this.itemType = {
           id: arrayItem[3],
@@ -38,7 +38,7 @@ class FileParser {
         log.logger.debug(this.item);
         log.logger.debug(this.itemType);
         log.logger.debug("Query chaincode...");
-        eventGeneratorInput.storeConveyorItem(this.item);
+        //eventGeneratorInput.storeConveyorItem(this.item);
         log.logger.debug("Query done at " + new Date());
         this.index++;
         this.parseData();
