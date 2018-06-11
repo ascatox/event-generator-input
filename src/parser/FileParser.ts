@@ -26,7 +26,7 @@ class FileParser {
         log.logger.debug("ItemIN : " + arrayItem);
         this.item = {
           id: arrayItem[0],
-          typeObject: null,
+          typeObject: 'ITEM',
           type: this.itemType,
           state: null,
           conveyorBay: null
