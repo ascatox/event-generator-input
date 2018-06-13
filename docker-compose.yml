@@ -5,11 +5,13 @@ services:
     image: faredge/event-generator-input
     environment:
       - LOGGING_LEVEL = error
+      - FILENAME= logger_input.txt
     ports:
       - 3000:3000
     volumes:
       - /opt/hyperledger/configuration-network-fabric/crypto-config:/crypto-config
       - /opt/hyperledger/product-unit-hub-web-interface/resources:/usr/src/resources
+      - /opt/hyperledger/event-generator-input/data:/usr/src/data
     external_links:
       - ca.example.com
       - orderer.example.com

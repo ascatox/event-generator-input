@@ -3,6 +3,9 @@ import { ConveyorItemType } from "../model/ConveyorItemType";
 import { eventGeneratorInput } from "../EventGeneratorInput";
 import * as log from "../Logger";
 
+const readSync = require('read-file-relative').readSync;
+const fileName = process.env.FILENAME || 'logger_input.txt';
+
 class FileParser {
   private item: ConveyorItem;
   private itemType: ConveyorItemType;
@@ -11,9 +14,7 @@ class FileParser {
 
   constructor() {
     this.index = 0;
-    this.lines = require("fs")
-      .readFileSync("logger_input.txt", "utf-8")
-      .split("\n");
+    this.lines = readSync('../../data/' + fileName).split("\n");
   }
 
   public parseData() {
@@ -44,7 +45,7 @@ class FileParser {
         this.parseData();
       }, +timestamp);
     } catch (e) {
-        log.logger.error(e);
+      log.logger.error(e);
     }
   }
 }

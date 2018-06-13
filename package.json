@@ -16,16 +16,17 @@
   "license": "ISC",
   "dependencies": {
     "@types/node": "8.9.0",
-    "express": "4.16.3",
-    "nodemon": "1.17.5",
-    "fabric-client": "1.0.8",
-    "fabric-ca-client": "1.0.8",
-    "winston": "2.4.2",
     "body-parser": "1.18.3",
+    "express": "4.16.3",
+    "fabric-ca-client": "1.0.8",
+    "fabric-client": "1.0.8",
+    "line-by-line": "0.1.6",
     "moment": "2.22.1",
-    "node-schedule": "1.2.0",
     "node-ledger-client": "1.0.12",
-    "line-by-line": "0.1.6"
+    "node-schedule": "1.2.0",
+    "nodemon": "1.17.5",
+    "read-file-relative": "^1.2.0",
+    "winston": "2.4.2"
   },
   "devDependencies": {
     "@types/mocha": "2.2.41",
