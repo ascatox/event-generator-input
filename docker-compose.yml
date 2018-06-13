@@ -5,7 +5,7 @@ services:
     image: faredge/event-generator-input
     environment:
       - LOGGING_LEVEL = error
-      - FILENAME= logger_input.txt
+      - FILENAME = logger_input.txt
     ports:
       - 3000:3000
     volumes:
@@ -19,4 +19,4 @@ services:
       - peer1.org1.example.com
       - peer2.org1.example.com
       - peer3.org1.example.com
-    network_mode: configurationservice_byfn
+    #network_mode: configurationservice_byfn
