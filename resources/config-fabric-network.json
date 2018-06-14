@@ -8,7 +8,7 @@
   "chaincode": {
     "path": "smart-conveyor-chaincode",
     "name": "smart-conveyor-chaincode",
-    "version": "1.7",
+    "version": "1.9",
     "lang": "NODE"
   },
   "organizations": [
