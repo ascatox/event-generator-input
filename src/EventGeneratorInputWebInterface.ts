@@ -1,7 +1,7 @@
 import * as express from 'express';
 import * as bodyParser from 'body-parser';
 import { logger } from "./Logger";
-import { eventGeneratorInput } from "./EventGeneratorInput"
+import { eventGeneratorInput } from "./EventGeneratorInput";
 import { ConveyorItem } from './model/ConveyorItem';
 class EventGeneratorInputWebInterface {
   public express

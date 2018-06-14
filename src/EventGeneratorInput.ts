@@ -1,15 +1,19 @@
-import {LedgerClient} from 'node-ledger-client'
+import { LedgerClient } from 'node-ledger-client'
 import { ConveyorItem } from './model/ConveyorItem';
 const config = require('../resources/config-fabric-network.json');
 
 class EventGeneratcorInput {
     private ledgerClient: LedgerClient;
 
-    constructor(ledgerClient : LedgerClient) {
-        this.ledgerClient = ledgerClient;
+    constructor() {
     }
 
+    public init(ledgerClient: LedgerClient) {
+        this.ledgerClient = ledgerClient;
+    }
     public async storeConveyorItem(item: ConveyorItem) {
+        if (!this.ledgerClient)
+            throw new Error('LedgerClient not instantiated, call init()');
         try {
             const json = JSON.stringify(item);
             return await this.ledgerClient.doInvoke('storeConveyorItem', [json]);

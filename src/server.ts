@@ -2,21 +2,14 @@ import winston from "winston";
 // const port = process.env.PORT || 3000;
 
 import { FileParser } from "./parser/FileParser";
-//import { Timer } from "./parser/Timer";
-// productUnitWebInterface.listen(port, (err) => {
-//   if (err) {
-//     return console.log(err)
-//   }
+import { LedgerClient } from 'node-ledger-client'
+import { eventGeneratorInput } from "./EventGeneratorInput";
+const config = require('../resources/config-fabric-network.json');
 
-//   return console.log(`server is listening on ${port}`)
-// })
-(async function main() {
-  //const fileParser = new FileParser();
-  //let line = fileParser.parseData(70,true);
-  //console.log(line);
-
-  // const timer = new Timer();
-  // timer.run();
+async function main() {
+  const ledgerClient = await LedgerClient.init(config);
+  eventGeneratorInput.init(ledgerClient);
   const fileParser = new FileParser();
   fileParser.parseData();
-})();
+};
+main();
