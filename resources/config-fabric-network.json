@@ -3,12 +3,12 @@
   "type": "hlfv1.1",
   "channelName": "ledgerchannel",
   "timeout": 5000,
-  "cryptoconfigdir": "/Users/ascatox/Desktop/crypto-config",
+  "cryptoconfigdir": "/home/claudio/Scrivania/crypto-config",
   "tls": false,
   "chaincode": {
-    "path": "analytics-chaincode",
-    "name": "analytics-chaincode",
-    "version": "2.3",
+    "path": "smart-conveyor-chaincode",
+    "name": "smart-conveyor-chaincode",
+    "version": "1.6",
     "lang": "NODE"
   },
   "organizations": [

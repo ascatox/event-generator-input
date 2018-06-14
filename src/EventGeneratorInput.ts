@@ -3,10 +3,10 @@ import { ConveyorItem } from './model/ConveyorItem';
 const config = require('../resources/config-fabric-network.json');
 
 class EventGeneratcorInput {
-    private ledgerClient;
+    private ledgerClient: LedgerClient;
 
-    constructor() {
-       this.ledgerClient = LedgerClient.init(config); 
+    constructor(ledgerClient : LedgerClient) {
+        this.ledgerClient = ledgerClient;
     }
 
     public async storeConveyorItem(item: ConveyorItem) {

@@ -10,7 +10,7 @@ import { FileParser } from "./parser/FileParser";
 
 //   return console.log(`server is listening on ${port}`)
 // })
-(function main() {
+(async function main() {
   //const fileParser = new FileParser();
   //let line = fileParser.parseData(70,true);
   //console.log(line);
