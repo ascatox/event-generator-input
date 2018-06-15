@@ -3,7 +3,7 @@ import { ConveyorItemType } from "../model/ConveyorItemType";
 import { eventGeneratorInput } from "../EventGeneratorInput";
 import * as log from "../Logger";
 import * as moment from 'moment'
-
+//const colors = require('colors');
 const readSync = require('read-file-relative').readSync;
 const fileName = process.env.FILENAME || 'logger_input.txt';
 
@@ -56,14 +56,14 @@ class FileParser {
         log.logger.debug(this.itemType);
         log.logger.debug("Query chaincode...");
         eventGeneratorInput.storeConveyorItem(this.item);
-        log.logger.debug("Query done at " + moment().format('MMMM Do YYYY, h:mm:ss a'));
-        this.index++;
-        this.parseData();
-      }, +timestamp);
-    } catch (e) {
-      log.logger.error(e);
-    }
+        log.logger.info("Query done at " + moment().format('MMMM Do YYYY, h:mm:ss a'));
+      this.index++;
+      this.parseData();
+    }, +timestamp);
+  } catch(e) {
+    log.logger.error(e);
   }
+}
 }
 
 export { FileParser };
