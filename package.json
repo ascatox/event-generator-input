@@ -10,6 +10,7 @@
     "test": "tsc && mocha dist/**/*.spec.js",
     "lint": "eslint src --ext ts",
     "tsc": "tsc"
+
   },
   "keywords": [],
   "author": "",
@@ -27,7 +28,8 @@
     "node-schedule": "1.2.0",
     "nodemon": "1.17.5",
     "read-file-relative": "^1.2.0",
-    "winston": "2.4.2"
+    "winston": "2.4.2",
+    "chalk" : "*"
   },
   "devDependencies": {
     "@types/mocha": "2.2.41",
@@ -44,5 +46,6 @@
     "fabric-client": "1.0.8",
     "fabric-ca-client": "1.0.8",
     "body-parser": "1.18.3"
+
   }
 }

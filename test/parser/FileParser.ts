@@ -6,7 +6,6 @@ import * as moment from 'moment'
 //const colors = require('colors');
 const readSync = require('read-file-relative').readSync;
 const fileName = process.env.FILENAME || 'logger_input.txt';
-const chalk = require('chalk');
 
 class FileParser {
   private item: ConveyorItem;
@@ -26,7 +25,7 @@ class FileParser {
       let timestamp = arrayRead[2];
       setTimeout(() => {
         const arrayItem = this.lines[this.index].split(";");
-        log.logger.debug(chalk.yellow("ItemIN : " + arrayItem));
+        log.logger.debug("ItemIN : " + arrayItem);
         this.item = {
           id: arrayItem[0],
           typeObject: 'ITEM',
@@ -57,7 +56,7 @@ class FileParser {
         log.logger.debug(this.itemType);
         log.logger.debug("Query chaincode...");
         eventGeneratorInput.storeConveyorItem(this.item);
-        log.logger.info(chalk.red("Query done at " + moment().format('MMMM Do YYYY, h:mm:ss a')));
+        log.logger.info("Query done at " + moment().format('MMMM Do YYYY, h:mm:ss a'));
       this.index++;
       this.parseData();
     }, +timestamp);
