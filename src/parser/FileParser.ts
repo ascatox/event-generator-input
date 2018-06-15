@@ -35,8 +35,23 @@ class FileParser {
         };
         this.itemType = {
           id: arrayItem[3],
-          description: 'oven'
+          description: 'null'
         };
+        if(arrayItem[3] == '869990965260'){
+          this.itemType.description = 'oven';
+        }
+        if(arrayItem[3] == '869990965261'){
+          this.itemType.description = 'fridge';
+        }
+        if(arrayItem[3] == '869990965262'){
+          this.itemType.description = 'washingmachine';
+        }
+        if(arrayItem[3] == '869990965263'){
+          this.itemType.description = 'dishwasher';
+        }
+        if(arrayItem[3] == '869990965264'){
+          this.itemType.description = 'dryer';
+        }
         log.logger.debug(this.item);
         log.logger.debug(this.itemType);
         log.logger.debug("Query chaincode...");
