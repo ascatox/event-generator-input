@@ -4,7 +4,7 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "start": "node ./dist/server.js",
+    "start": "tsc & node ./dist/server.js",
     "build": "tsc",
     "dev": "tsc --watch & nodemon dist",
     "test": "tsc && mocha dist/**/*.spec.js",
