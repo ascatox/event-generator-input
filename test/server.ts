@@ -13,8 +13,18 @@ async function main() {
   await eventGeneratorInput.init(ledgerClient);
   const fileParser = new FileParser();
   fileParser.parseData();
-  let id = "1"
+  
+  let id = "7784179"
   let item = await eventGeneratorInput.getConveyorItemById(id);
+  this.logger.info(' getItemByID :' +item);
+
+  let desc = "oven";
+  let items = await eventGeneratorInput.getConveyorItemByDescription(desc);
+
+  for (let index = 0; index < items.length; index++) {
+    const element = items[index];
+    this.logger.info(' getItemByID :' +element);
+  }
 /*  logger.
   for (let index = 0; index < items.length; index++) {
     const element = items[index];
