@@ -13,7 +13,6 @@ async function main() {
   await eventGeneratorInput.init(ledgerClient);
   const fileParser = new FileParser();
   fileParser.parseData();
-  
   let id = "7784179"
   let item = await eventGeneratorInput.getConveyorItemById(id);
   this.logger.info(' getItemByID :' +item);

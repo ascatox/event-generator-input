@@ -32,6 +32,28 @@ class EventGeneratcorInput {
       throw new Error(err);
     }
   }
+
+  public async getConveyorItemById(id: string) {
+    if (!this.ledgerClient)
+      throw new Error("LedgerClient not instantiated, call init()");
+    try {
+      return await this.ledgerClient.doInvoke("getItemById", [id]);
+    } catch (err) {
+      log.logger.error(err);
+      throw new Error(err);
+    }
+  }
+
+  public async getConveyorItemByDescription(desc: string) {
+    if (!this.ledgerClient)
+      throw new Error("LedgerClient not instantiated, call init()");
+    try {
+      return await this.ledgerClient.doInvoke("getItemById", [desc]);
+    } catch (err) {
+      log.logger.error(err);
+      throw new Error(err);
+    }
+  }
 }
 
 export const eventGeneratorInput = new EventGeneratcorInput();
