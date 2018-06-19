@@ -21,16 +21,16 @@ class FileParser {
 
   public parseData() {
     if (this.lines == null || this.lines == undefined || this.lines == "") {
-      log.logger.debug(" Error Input: line null or empty!!!");
+      log.logger.info(" Error Input: line null or empty!!!");
     } else {
       if (this.lines != null || this.lines != undefined) {
-        log.logger.debug("Line read: " + this.lines[this.index]);
+        log.logger.info(chalk.red(this.lines[this.index]));
 
         const arrayRead = this.lines[this.index].split(";");
         let timestamp = arrayRead[2];
         setTimeout(() => {
           const arrayItem = this.lines[this.index].split(";");
-          log.logger.debug(chalk.yellow("ItemIN : " + arrayItem));
+          //log.logger.debug(chalk.yellow( + arrayItem));
           this.item = {
             id: arrayItem[0],
             typeObject: "ITEM",
@@ -57,16 +57,16 @@ class FileParser {
           if (arrayItem[3] == "869990965264") {
             this.itemType.description = "dryer";
           }
-          log.logger.debug(this.item);
-          log.logger.debug(this.itemType);
-          log.logger.debug("Query chaincode...");
+          //log.logger.debug(this.item);
+          //log.logger.debug(this.itemType);
+          //log.logger.debug("Query chaincode...");
           try {
             eventGeneratorInput.storeConveyorItem(this.item);
-            log.logger.info(
+            /* log.logger.info(
               chalk.red(
                 "Query done at " + moment().format("MMMM Do YYYY, h:mm:ss a")
-              )
-            );
+              ) 
+            );*/
           } catch (e) {
             log.logger.error(e);
           }

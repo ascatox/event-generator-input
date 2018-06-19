@@ -24,7 +24,7 @@
     "fabric-client": "1.0.8",
     "line-by-line": "0.1.6",
     "moment": "2.22.1",
-    "node-ledger-client": "*",
+    "node-ledger-client": "1.0.17",
     "node-schedule": "1.2.0",
     "nodemon": "1.17.5",
     "read-file-relative": "^1.2.0",
