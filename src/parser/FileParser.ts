@@ -16,33 +16,31 @@ class FileParser {
 
   constructor() {
     this.index = 0;
-    this.lines = readSync("../../data/" + fileName).split("\n");
+    this.lines = readSync("../../data/" + fileName);
   }
 
   public parseData() {
-    if (this.lines == null || this.lines == undefined || this.lines == "") {
-      log.logger.info(" Error Input: line null or empty!!!");
-    } else {
-      if (this.lines != null || this.lines != undefined) {
-        log.logger.info(chalk.red(this.lines[this.index]));
-
-        const arrayRead = this.lines[this.index].split(";");
-        let timestamp = arrayRead[2];
-        setTimeout(() => {
-          const arrayItem = this.lines[this.index].split(";");
-          //log.logger.debug(chalk.yellow( + arrayItem));
-          this.item = {
-            id: arrayItem[0],
-            typeObject: "ITEM",
-            type: this.itemType,
-            state: null,
-            conveyorBay: null
-          };
-          this.itemType = {
-            id: arrayItem[3],
-            description: "null"
-          };
-          if (arrayItem[3] == "869990965260") {
+    let lineSplit = this.lines.split("\n");
+    log.logger.info(chalk.red(lineSplit[this.index]));
+    const arrayRead = lineSplit[this.index].split(";");
+    let timestamp = arrayRead[2];
+    setTimeout(() => {
+      if (lineSplit[this.index]) {
+        const arrayItem = lineSplit[this.index].split(";");
+        //log.logger.debug(chalk.yellow( + arrayItem));
+        this.item = {
+          id: arrayItem[0],
+          typeObject: "ITEM",
+          type: this.itemType,
+          state: null,
+          conveyorBay: null
+        };
+        this.itemType = {
+          id: arrayItem[3],
+          description: "null"
+        };
+        this.item.type = this.itemType;
+        /* if (arrayItem[3] == "869990965260") {
             this.itemType.description = "oven";
           }
           if (arrayItem[3] == "869990965261") {
@@ -56,26 +54,24 @@ class FileParser {
           }
           if (arrayItem[3] == "869990965264") {
             this.itemType.description = "dryer";
-          }
-          //log.logger.debug(this.item);
-          //log.logger.debug(this.itemType);
-          //log.logger.debug("Query chaincode...");
-          try {
-            eventGeneratorInput.storeConveyorItem(this.item);
-            /* log.logger.info(
+          } */
+        log.logger.debug(this.item);
+        //log.logger.debug(this.itemType);
+        //log.logger.debug("Query chaincode...");
+        try {
+          eventGeneratorInput.storeConveyorItem(this.item);
+          /* log.logger.info(
               chalk.red(
                 "Query done at " + moment().format("MMMM Do YYYY, h:mm:ss a")
               ) 
             );*/
-          } catch (e) {
-            log.logger.error(e);
-          }
-
-          this.index++;
-          this.parseData();
-        }, +timestamp);
+        } catch (e) {
+          log.logger.error(e);
+        }
       }
-    }
+      this.index++;
+      this.parseData();
+    }, +timestamp);
   }
 }
 

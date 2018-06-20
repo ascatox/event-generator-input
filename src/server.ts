@@ -7,7 +7,7 @@ import { eventGeneratorInput } from "./EventGeneratorInput";
 import eventGeneratorInputRest from './EventGeneratorInputWebInterface'
 const config = require('../resources/config-fabric-network.json');
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3001;
 
 function launchREST() {
   eventGeneratorInputRest.listen(port, (err) => {
@@ -21,6 +21,7 @@ async function main() {
   const ledgerClient = await LedgerClient.init(config);
   launchREST();
   await eventGeneratorInput.init(ledgerClient);
+  await eventGeneratorInput.initChaincode();
   const fileParser = new FileParser();
   fileParser.parseData();
 };
