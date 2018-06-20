@@ -6,7 +6,6 @@
 For all information regarding the Fabric network installation read this link --> https://github.com/far-edge/DistributedLedger/tree/develop/configuration-service-network
 
 
-
 Copy your HLF `crypto-config` dir under the chosen directory (default directory is **USER HOME**).
 
 # Usage
@@ -23,7 +22,7 @@ Configure file `resources/config-fabric-network.json`. <br/>
 
 Edit the file `config-fabric-network.json` with your favourite text editor in order to configure the network as in your HLF previous installation. Under you can find a complete example of configured file: <br/>
 `vim config-fabric-network.json` 
-`
+```
 {
   "name": "fabric-network",
   "type": "hlfv1.1",
@@ -69,7 +68,7 @@ Edit the file `config-fabric-network.json` with your favourite text editor in or
     }
   ]
 } 
-`
+```
 Open a terminal and launch `tsc -w` to compile the Typescript code. <br/>
 
 Open another terminal `node ./dist/server.js`. <br/>
@@ -82,13 +81,11 @@ Open another terminal `node ./dist/server.js`. <br/>
 
 Clone this repo https://github.com/far-edge/PilotReshoring.git <br/>
 
-
 edit the file  `resources/config-fabric-network.json` as done before. <br/>
 
 Open a terminal and launch `tsc -w` to compile the Typescript code. <br/>
 
 Open another terminal `node ./dist/server.js`. <br/>
 
+## Presentation
 
-### Docker image
- `bash dockerize.sh`
