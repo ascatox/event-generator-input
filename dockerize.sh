@@ -1,2 +1,2 @@
 #!/bin/sh
-docker build -t faredge/event-generator-input .
+docker build -t ascatox/event-generator-input .
