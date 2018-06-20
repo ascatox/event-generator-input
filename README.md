@@ -5,14 +5,11 @@
 
 For all information regarding the Fabric network installation read this link --> https://github.com/far-edge/DistributedLedger/tree/develop/configuration-service-network
 
-
 Copy your HLF `crypto-config` dir under the chosen directory (default directory is **USER HOME**).
 
 # Usage
 
 ## Event Generator INPUT
-
-### Development 
 
 #### Requirements => Node.js 8.x and TypeScript 2.9
 
@@ -74,8 +71,6 @@ Open a terminal and launch `tsc -w` to compile the Typescript code. <br/>
 Open another terminal `node ./dist/server.js`. <br/>
 
 ## Event Generator OUTPUT
-
-### Development 
 
 #### Requirements => Node.js 8.x and TypeScript 2.9
 
