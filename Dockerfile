@@ -7,6 +7,8 @@ WORKDIR /usr/src/app
 # Install app dependencies
 COPY package.json /usr/src/app/
 
+RUN npm install -g typescript
+
 RUN npm install
 
 # Copy app source
@@ -17,4 +19,4 @@ RUN npm prune --production
 
 # Expose port and CMD
 EXPOSE 3000
-CMD [ "node", "server.js" ]
+CMD [ "npm", "start" ]

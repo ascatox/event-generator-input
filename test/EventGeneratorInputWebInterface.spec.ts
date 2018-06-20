@@ -8,4 +8,4 @@ describe('EventGeneratorInput', () => {
       .expect('Content-Type', /json/)
       .expect(200)
   )
-})
+});
