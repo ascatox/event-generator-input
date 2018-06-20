@@ -19,4 +19,4 @@ RUN npm prune --production
 
 # Expose port and CMD
 EXPOSE 3000
-CMD [ "npm", "start" ]
+CMD [ "node", "server.js" ]

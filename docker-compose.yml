@@ -2,7 +2,7 @@ version: '2.0'
 services:
   event-generator-input:
     container_name: event-generator-input
-    image: faredge/event-generator-input
+    image: ascatox/event-generator-input
     environment:
       - LOGGING_LEVEL = error
       - FILENAME = logger_input.txt
@@ -10,13 +10,6 @@ services:
       - 3000:3000
     volumes:
       - /opt/hyperledger/configuration-network-fabric/crypto-config:/crypto-config
-      - /opt/hyperledger/product-unit-hub-web-interface/resources:/usr/src/resources
-      - /opt/hyperledger/event-generator-input/data:/usr/src/data
-    external_links:
-      - ca.example.com
-      - orderer.example.com
-      - peer0.org1.example.com
-      - peer1.org1.example.com
-      - peer2.org1.example.com
-      - peer3.org1.example.com
-    #network_mode: configurationservice_byfn
+      - /opt/hyperledger/presentation/docker/resources:/usr/src/resources
+      - /opt/hyperledgerpresentation/docker/config:/usr/src/data
+   
