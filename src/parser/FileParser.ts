@@ -21,12 +21,16 @@ class FileParser {
 
   public parseData() {
     let lineSplit = this.lines.split("\n");
+   
     log.logger.info(chalk.red(lineSplit[this.index]));
-    const arrayRead = lineSplit[this.index].split(";");
+    let row = lineSplit[this.index].replace(/(\r\n|\n|\r)/gm,"");
+    const arrayRead = row.split(";");
+
     let timestamp = arrayRead[2];
     setTimeout(() => {
-      if (lineSplit[this.index]) {
-        const arrayItem = lineSplit[this.index].split(";");
+      if (row) {
+        const arrayItem = row.split(";");
+        
         //log.logger.debug(chalk.yellow( + arrayItem));
         this.item = {
           id: arrayItem[0],

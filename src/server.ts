@@ -21,7 +21,7 @@ async function main() {
   const ledgerClient = await LedgerClient.init(config);
   launchREST();
   await eventGeneratorInput.init(ledgerClient);
-  await eventGeneratorInput.initChaincode();
+  //await eventGeneratorInput.initChaincode();
   const fileParser = new FileParser();
   fileParser.parseData();
 };
