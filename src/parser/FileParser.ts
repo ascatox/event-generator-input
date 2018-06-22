@@ -27,7 +27,7 @@ class FileParser {
     const arrayRead = row.split(";");
 
     let timestamp = arrayRead[2];
-    setTimeout(() => {
+    setTimeout(async () => {
       if (row) {
         const arrayItem = row.split(";");
         
@@ -63,7 +63,7 @@ class FileParser {
         //log.logger.debug(this.itemType);
         //log.logger.debug("Query chaincode...");
         try {
-          eventGeneratorInput.storeConveyorItem(this.item);
+          await eventGeneratorInput.storeConveyorItem(this.item);
           /* log.logger.info(
               chalk.red(
                 "Query done at " + moment().format("MMMM Do YYYY, h:mm:ss a")
